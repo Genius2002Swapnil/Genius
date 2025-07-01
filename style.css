@@ -201,3 +201,82 @@ footer {
 .contact-form button:hover {
   background-color: #001f3f;
 }
+/* Ensure blog content doesn't overflow */
+.blog-container {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-container {
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 12px;
+  }
+
+  .blog-title {
+    font-size: 22px;
+  }
+
+  .blog-content {
+    font-size: 16px;
+  }
+}
+/* CONTACT FORM STYLING */
+.contact-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-form p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.contact-form button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+.blog{
+  max: width 100%;
+  padding:20px;
+  box-sizing: border-box;
+  overflow-wrap: break-word
+}
