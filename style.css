@@ -39,8 +39,8 @@ h1, h2, h3 {
   }
 }
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #e0f7fa, #ffffff);
-  color: #333;
+  background: linear-gradient(to right, #41b7c7, #ce1bb0);
+  color: #1b57c7;
   line-height: 1.6;
 }
 
@@ -49,10 +49,10 @@ section {
   margin-top: 60px;
 }
 header {
-  background: linear-gradient(to right, #001f3f, #003366);
-  color: white;
+  background: linear-gradient(to right, #ce59ba, #a6cc1c);
+  color: rgb(46, 185, 200);
   padding: 60px 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(180, 110, 18, 0.2);
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
@@ -66,7 +66,7 @@ header h1 {
 header p {
   font-size: 1.2rem;
   font-style: italic;
-  color: #ffdd57;
+  color: #b41668;
 }
 
 /* Navigation */
@@ -83,8 +83,8 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffffff;
-  text-shadow: 1px 1px 4px #000;
+  color: #410da9;
+  text-shadow: 1px 1px 4px #b8eaa0;
 }
 
 /* Main Content */
@@ -95,7 +95,7 @@ main {
 main h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #001f3f;
+  color: #b5d55b;
 }
 
 main p {
@@ -110,8 +110,8 @@ main p {
 
 /* Footer */
 footer {
-  background-color: #111;
-  color: #ccc;
+  background-color: #46ece1;
+  color: #7c6dd9;
   padding: 30px 20px;
   margin-top: 60px;
   font-size: 0.9rem;
@@ -124,7 +124,7 @@ footer {
   margin-top: 30px;
   padding: 12px 30px;
   background: #ffdd57;
-  color: #001f3f;
+  color: #e957b3;
   font-weight: bold;
   text-decoration: none;
   border-radius: 30px;
@@ -133,7 +133,7 @@ footer {
 }
 
 .main-btn:hover {
-  background: #001f3f;
+  background: #9072db;
   color: white;
   transform: scale(1.05);
 }
@@ -152,7 +152,7 @@ footer {
 
 .video-section h2 {
   margin-bottom: 20px;
-  color: #003366;
+  color: #215a93;
 }
 
 .video-container {
@@ -166,7 +166,7 @@ footer {
 
 .contact-form h2 {
   margin-bottom: 20px;
-  color: #003366;
+  color: #0753a0;
 }
 
 .contact-form form {
@@ -189,7 +189,7 @@ footer {
 
 .contact-form button {
   padding: 12px;
-  background-color: #003366;
+  background-color: #044688;
   color: white;
   font-weight: bold;
   border: none;
@@ -199,7 +199,7 @@ footer {
 }
 
 .contact-form button:hover {
-  background-color: #001f3f;
+  background-color: #0e3d6b;
 }
 /* Ensure blog content doesn't overflow */
 .blog-container {
@@ -238,13 +238,13 @@ footer {
 
 .contact-form h2 {
   text-align: center;
-  color: #333;
+  color: #875f5f;
   margin-bottom: 20px;
 }
 
 .contact-form p {
   text-align: center;
-  color: #666;
+  color: #cbbcbc;
   margin-bottom: 30px;
 }
 
@@ -273,10 +273,4 @@ footer {
 
 .contact-form button:hover {
   background-color: #0056b3;
-}
-.blog{
-  max: width 100%;
-  padding:20px;
-  box-sizing: border-box;
-  overflow-wrap: break-word
 }
