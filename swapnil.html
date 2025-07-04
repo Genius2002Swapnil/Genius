@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Genius Era</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #222;
+      padding: 1rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    nav {
+      background: #444;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    nav button {
+      background: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav button:hover {
+      background: #ddd;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .field-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .field-buttons button {
+      flex: 1;
+      min-width: 150px;
+      padding: 1rem;
+      border-radius: 10px;
+      background: #e0eafc;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .field-buttons button:hover {
+      background: #c2d3ff;
+    }
+
+    .subject-box {
+      margin-top: 2rem;
+      background: #f4f4f4;
+      border-left: 5px solid #333;
+      padding: 1rem;
+      border-radius: 8px;
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌟 Genius Era Platform</h1>
+  </header>
+
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('about')">About</button>
+    <button onclick="showSection('blog')">Blog</button>
+    <button onclick="showSection('contact')">Contact</button>
+    <button onclick="showSection('fields')">Fields</button>
+  </nav>
+
+  <main>
+    <section id="home" class="active">
+      <h2>Welcome Home 🏠</h2>
+      <p>This is the main dashboard of Genius Era. UPSC | Law | Knowledge | Creativity</p>
+      <p>Page Is Under Proccessing...</p>
+    </section>
+
+    <section id="about">
+      <h2>About Genius Era 💡</h2>
+      <p>We build resources for future leaders, thinkers, aspirants, and creators. From UPSC to World Top Universities.</p>
+    </section>
+
+    <section id="blog">
+      <h2>Latest Blog 📝</h2>
+      <p><strong>Culpable Homicide vs Murder:</strong> A complete breakdown under IPC for UPSC & judiciary.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us 📬</h2>
+      <p>Email: geniusiam207@gmail.com<br>Instagram: @genius_era</p>
+    </section>
+
+    <section id="fields">
+      <h2>Select Your Field of Interest 🎯</h2>
+      <div class="field-buttons">
+  <button onclick="showSubjects('arts')">Arts</button>
+  <button onclick="showSubjects('commerce')">Commerce</button>
+  <button onclick="showSubjects('science')">Science</button>
+  <button onclick="showSubjects('law')">Law</button>
+  <button onclick="showSubjects('medical')">Medical</button>
+  <button onclick="showSubjects('engineering')">Engineering</button>
+  <button onclick="showSubjects('agriculture')">Agriculture</button>
+  <button onclick="showSubjects('education')">Education</button>
+  <button onclick="showSubjects('finearts')">Fine Arts & Design</button>
+  <button onclick="showSubjects('vocational')">Vocational</button>
+  <button onclick="showSubjects('media')">Media & Communication</button>
+  <button onclick="showSubjects('defense')">Defense Studies</button>
+  <button onclick="showSubjects('environmental')">Environmental</button>
+<button onclick="showSubjects('hospitality')">Hospitality</button>
+<button onclick="showSubjects('library')">Library</button>
+<button onclick="showSubjects('sports')">Sports</button>
+<button onclick="showSubjects('languages')">Languages</button>
+<button onclick="showSubjects('performingarts')">Performing Arts</button>
+<button onclick="showSubjects('publicadmin')">Public Admin</button>
+<button onclick="showSubjects('management')">Management</button>
+<button onclick="showSubjects('socialwork')">Social Work</button>
+<button onclick="showSubjects('analytics')">Data & Analytics</button>
+<button onclick="showSubjects('space')">Space Science</button>
+<button onclick="showSubjects('forensics')">Forensic Science</button>
+<button onclick="showSubjects('disaster')">Disaster Mgmt</button>
+<button onclick="showSubjects('ethics')">Ethics & Values</button>
+<button onclick="showSubjects('aiml')">AI & ML</button>
+</div>
+
+<!-- Add new subject boxes below -->
+
+<div id="arts" class="subject-box">
+  <h3>Arts Subjects:</h3>
+  <ul>
+    <li>History (Ancient, Medieval, Modern)</li>
+    <li>Geography (Physical, Human, Indian)</li>
+    <li>Political Science (Theory, Indian, IR,)</li>
+    <li>Sociology, Psychology, Philosophy</li>
+    <li>Economics</li>
+    <li>Anthropology</li>
+    <li>Archaeolgy</li>
+    <li>Lingustics</li>
+    <li>Internatiomal Relations</li>
+  </ul>
+</div>
+
+
+<div id="commerce" class="subject-box">
+  <h3>Commerce Subjects:</h3>
+  <ul>
+    <li>Accountancy</li>
+    <li>Business Studies</li>
+    <li>Economics</li>
+    <li>Entrepreneurship</li>
+  </ul>
+</div>
+
+<div id="science" class="subject-box">
+  <h3>Science Subjects:</h3>
+  <ul>
+    <li>Physics (Mechanics, Thermodynamics)</li>
+    <li>Chemistry (Organic, Inorganic)</li>
+    <li>Biology (Botany, Zoology)</li>
+    <li>Computer Science, AI, Astrophysics</li>
+  </ul>
+</div>
+
+<div id="law" class="subject-box">
+  <h3>Law Subjects:</h3>
+  <ul>
+    <li>Constitutional Law</li>
+    <li>IPC(BNS) / CrPC(Bnss) / Evidence(BSA),White Coller Crime,Criminology,Minor Law& Supreme Court Guidelines </li>
+    <li>Family Law(Hindu Law & Muslim Law), Contract Law,Tort Law</li>
+    <li>International Law, PIL, Cyber Law,Information Technology Law,</li>
+    <li>Environmental Law,Property Law,Company Law,Code Of Civi Procedure,Taxatio Law,Industrial Law,International Trade Law</li>
+    <li>Gender Justice,Competetion Law,Labour Law,Humaniatarian&Refugee Law,Administrative Law</li>
+    <li>Legislative Drafting,Intellectual Property Law,Election Laws,Advocay Law</li>
+  </ul>
+</div>
+
+<div id="medical" class="subject-box">
+  <h3>Medical Subjects:</h3>
+  <ul>
+    <li>Anatomy, Physiology, Pathology</li>
+    <li>Pharmacology, Microbiology</li>
+    <li>Surgery, Medicine, Pediatrics</li>
+    <li>Psychiatry, Radiology, Dermatology</li>
+  </ul>
+</div>
+
+<div id="engineering" class="subject-box">
+  <h3>Engineering Branches:</h3>
+  <ul>
+    <li>Computer Science, IT</li>
+    <li>Mechanical, Electrical, Civil</li>
+    <li>Electronics, Aerospace, Chemical</li>
+    <li>AI/ML, Robotics, Data Science</li>
+  </ul>
+</div>
+
+<div id="agriculture" class="subject-box">
+  <h3>Agriculture Subjects:</h3>
+  <ul>
+    <li>Agronomy, Soil Science</li>
+    <li>Horticulture, Plant Pathology</li>
+    <li>Animal Husbandry, Agribusiness</li>
+    <li>Agro Economics, Genetics</li>
+  </ul>
+</div>
+
+<div id="education" class="subject-box">
+  <h3>Education Subjects:</h3>
+  <ul>
+    <li>Child Psychology</li>
+    <li>Educational Philosophy</li>
+    <li>Pedagogy, Curriculum Studies</li>
+    <li>Inclusive Education, Assessment</li>
+  </ul>
+</div>
+
+<div id="finearts" class="subject-box">
+  <h3>Fine Arts & Design:</h3>
+  <ul>
+    <li>Painting, Sculpture, Printmaking</li>
+    <li>Graphic Design, Fashion Design</li>
+    <li>Animation, Interior Design</li>
+    <li>Architecture, Industrial Design</li>
+  </ul>
+</div>
+
+<div id="vocational" class="subject-box">
+  <h3>Vocational Skills:</h3>
+  <ul>
+    <li>Plumbing, Electrician, Carpentry</li>
+    <li>Fashion Technology, Beauty & Wellness</li>
+    <li>Hospitality, Tourism</li>
+    <li>Automobile, Healthcare, Coding</li>
+  </ul>
+</div>
+
+<div id="media" class="subject-box">
+  <h3>Media & Communication:</h3>
+  <ul>
+    <li>Mass Communication, Journalism</li>
+    <li>Film & TV Studies</li>
+    <li>Public Relations, Advertising</li>
+    <li>Digital Media, Content Creation</li>
+  </ul>
+</div>
+
+<div id="defense" class="subject-box">
+  <h3>Defense & Strategic Studies:</h3>
+  <ul>
+    <li>Military History, Strategy</li>
+    <li>International Relations</li>
+    <li>Counter-Terrorism, National Security</li>
+    <li>Geopolitics, Defense Technology</li>
+  </ul>
+</div>
+<div id="environmental" class="subject-box">
+  <h3>Environmental Studies:</h3>
+  <ul>
+    <li>Ecology, Biodiversity</li>
+    <li>Climate Change</li>
+    <li>Environmental Law & Policy</li>
+    <li>Sustainability & Green Tech</li>
+  </ul>
+</div>
+
+<div id="hospitality" class="subject-box">
+  <h3>Hospitality & Tourism:</h3>
+  <ul>
+    <li>Hotel Management</li>
+    <li>Travel & Tourism Studies</li>
+    <li>Event Management</li>
+    <li>Food Production & Beverage Services</li>
+  </ul>
+</div>
+
+<div id="library" class="subject-box">
+  <h3>Library & Information Science:</h3>
+  <ul>
+    <li>Library Management</li>
+    <li>Cataloging & Classification</li>
+    <li>Digital Libraries</li>
+    <li>Information Retrieval</li>
+  </ul>
+</div>
+
+<div id="sports" class="subject-box">
+  <h3>Sports & Physical Education:</h3>
+  <ul>
+    <li>Sports Science</li>
+    <li>Fitness Training</li>
+    <li>Kinesiology</li>
+    <li>Physical Education Pedagogy</li>
+  </ul>
+</div>
+
+<div id="languages" class="subject-box">
+  <h3>Language & Literature:</h3>
+  <ul>
+    <li>Indian Languages:(Hindi,Bengali,Marathi,Tamil,Telugu,Urdu,Gujrati,Kannada,Malyalam,Punjabi,Odia,Assamese,Sanskrit,Sindhi,Kashmiri,Manipuri,Bodo,Dogri,Konkani,Maithili,Santhali)
+        </li>
+        <li>English</li>
+        <li>Mandarin Chinese</li>
+        <li>Spanish</li>
+        <li>French</li>
+        <li>Arabic</li>
+        <li>Portuguese</li>
+        <li>Russian</li>
+        <li>German</li>
+        <li>Italian</li>
+        <li>Latin</li>
+        <li>Ancient Greek</li>
+        <li>Hebrew</li>
+        <li>Japanese</li>
+        <li>Dutch</li>
+        <li>Polish</li>
+        <li>Hungarian</li>
+        <li>Hungarian</li>
+        <li>Swedish<li>
+        <li>Norwegian<li>
+        <li>Finnish<li>
+        <li>Ukrainian<li>
+        <li>Romanian<li>
+        <li>Bulgarian<li>
+        <li>Albanian<li>
+        <li>Gaelic (Irish) <li>
+        <li>Persian (Farsi) <li>
+        <li>Turkish<li>
+        <li>Korean<li>
+        <li>Taiwanese<li>
+        <li>Thai<li>
+ </ul>
+</div>
+
+<div id="performingarts" class="subject-box">
+  <h3>Performing Arts:</h3>
+  <ul>
+    <li>Music (Vocal & Instrumental)</li>
+    <li>Theatre & Drama</li>
+    <li>Dance (Classical, Folk, Western)</li>
+    <li>Stage Production</li>
+  </ul>
+</div>
+
+<div id="publicadmin" class="subject-box">
+  <h3>Public Administration:</h3>
+  <ul>
+    <li>Administrative Theory</li>
+    <li>Indian Administration</li>
+    <li>Governance & Reforms</li>
+    <li>Public Policy & E-Governance</li>
+  </ul>
+</div>
+
+<div id="management" class="subject-box">
+  <h3>Management Studies:</h3>
+  <ul>
+    <li>HR, Marketing, Finance</li>
+    <li>Operations & Strategy</li>
+    <li>Startups & Innovation</li>
+    <li>International Business</li>
+  </ul>
+</div>
+
+<div id="socialwork" class="subject-box">
+  <h3>Social Work:</h3>
+  <ul>
+    <li>Community Development</li>
+    <li>Women & Child Welfare</li>
+    <li>NGO Management</li>
+    <li>Health & Rehabilitation</li>
+  </ul>
+</div>
+
+<div id="analytics" class="subject-box">
+  <h3>Data & Analytics:</h3>
+  <ul>
+    <li>Statistics & Probability</li>
+    <li>Data Visualization (Power BI, Tableau)</li>
+    <li>Big Data, Data Mining</li>
+    <li>Business & Predictive Analytics</li>
+  </ul>
+</div>
+
+<div id="space" class="subject-box">
+  <h3>Space & Planetary Science:</h3>
+  <ul>
+    <li>Astrophysics & Astronomy</li>
+    <li>Satellite Science</li>
+    <li>Planetary Geology</li>
+    <li>ISRO/NASA Studies</li>
+  </ul>
+</div>
+
+<div id="forensics" class="subject-box">
+  <h3>Forensic Science:</h3>
+  <ul>
+    <li>Crime Scene Investigation</li>
+    <li>Forensic Biology & Toxicology</li>
+    <li>Digital Forensics</li>
+    <li>Law & Ethics in Forensics</li>
+  </ul>
+</div>
+
+<div id="disaster" class="subject-box">
+  <h3>Disaster Management:</h3>
+  <ul>
+    <li>Risk Assessment</li>
+    <li>Emergency Planning</li>
+    <li>NDMA Guidelines</li>
+    <li>Post-Disaster Recovery</li>
+  </ul>
+</div>
+
+<div id="ethics" class="subject-box">
+  <h3>Ethics & Human Values:</h3>
+  <ul>
+    <li>Indian Moral Thinkers</li>
+    <li>Western Ethics</li>
+    <li>Professional Ethics</li>
+    <li>Applied Ethics</li>
+  </ul>
+</div>
+
+<div id="aiml" class="subject-box">
+  <h3>AI & Machine Learning:</h3>
+  <ul>
+    <li>Neural Networks</li>
+    <li>Deep Learning</li>
+    <li>Natural Language Processing</li>
+    <li>Ethics in AI</li>
+  </ul>
+</div>
+
+      
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Genius Era | All rights reserved
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      // Hide subject boxes if switching from fields
+      document.querySelectorAll('.subject-box').forEach(box => box.style.display = 'none');
+    }
+
+    function showSubjects(fieldId) {
+      document.querySelectorAll('.subject-box').forEach(box => box.style.display = 'none');
+      document.getElementById(fieldId).style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
