@@ -3,505 +3,364 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Genius Era</title>
+  <title>Genius Era - Home</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #ece9e6, #ffffff);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      background: #0b5095;
     }
 
-    header {
-      background: #222;
-      padding: 1rem;
+    h1 {
       text-align: center;
-      color: #fff;
+      margin: 20px 0;
+      color: #1a237e;
     }
 
-    nav {
-      background: #444;
+    .field-section {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 1rem;
-      padding: 1rem;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 20px;
     }
 
-    nav button {
-      background: #fff;
+    .field-button {
+      padding: 12px 20px;
+      background-color: #e3f2fd;
       border: none;
-      padding: 10px 20px;
-      font-weight: bold;
       border-radius: 8px;
       cursor: pointer;
+      font-weight: 600;
+      color: #0d47a1;
+      transition: background 0.3s;
+    }
+
+    .field-button:hover {
+      background-color: #bbdefb;
+    }
+
+    .subject-container {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0 30px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .subject-link {
+      padding: 10px 15px;
+      background-color: #ffffff;
+      border: 1px solid #90caf9;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #0d47a1;
+      font-weight: 600;
       transition: 0.3s;
     }
 
-    nav button:hover {
-      background: #ddd;
+    .subject-link:hover {
+      background-color: #0f73a2;
     }
 
-    main {
-      flex: 1;
-      padding: 2rem;
-    }
+    /* Field-specific background colors */
+    .arts-bg { background-color: #fff3e0; }
+    .science-bg { background-color: #e8f5e9; }
+    .medical-bg { background-color: #f3e5f5; }
+    .commerce-bg { background-color: #e0f7fa; }
 
-    section {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .field-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .field-buttons button {
-      flex: 1;
-      min-width: 150px;
-      padding: 1rem;
-      border-radius: 10px;
-      background: #e0eafc;
-      border: 1px solid #ccc;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .field-buttons button:hover {
-      background: #c2d3ff;
-    }
-
-    .subject-box {
-      margin-top: 2rem;
-      background: #f4f4f4;
-      border-left: 5px solid #333;
-      padding: 1rem;
-      border-radius: 8px;
-      display: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: white;
+    @media (max-width: 600px) {
+      .field-button, .subject-link {
+        width: 90%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🌟 Genius Era Platform</h1>
-  </header>
+  <h1>🎓 Select Your Field of Interest</h1>
 
-  <nav>
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('about')">About</button>
-    <button onclick="showSection('blog')">Blog</button>
-    <button onclick="showSection('contact')">Contact</button>
-    <button onclick="showSection('fields')">Fields</button>
-  </nav>
+  <div class="field-section">
+    <button class="field-button" onclick="toggleSubjects('arts')">Arts</button>
+    <button class="field-button" onclick="toggleSubjects('science')">Science</button>
+    <button class="field-button" onclick="toggleSubjects('medical')">Medical</button>
+    <button class="field-button" onclick="toggleSubjects('commerce')">Commerce</button>
+    <button class="field-button" onclick="toggleSubjects('law')">Law</button>
+    <button class="field-button" onclick="toggleSubjects('engineering')">Engineering</button>
+    <button class="field-button" onclick="toggleSubjects('agriculture')">Agriculture</button>
+    <button class="field-button" onclick="toggleSubjects('education')">Education</button>
+   <button class="field-button" onclick="toggleSubjects('finearts')">Fine Arts & Design</button>
+   <button class="field-button" onclick="toggleSubjects('vocational')">Vocational</button>
+   <button class="field-button" onclick="toggleSubjects('media')">Media & Communication</button>
+   <button class="field-button" onclick="toggleSubjects('defence')">Defence Studies</button>
+   <button class="field-button" onclick="toggleSubjects('environmental')">Environmental Studies</button>
+   <button class="field-button" onclick="toggleSubjects('hospitality')">Hospitality</button>
+   <button class="field-button" onclick="toggleSubjects('library')">Library Science</button>
+   <button class="field-button" onclick="toggleSubjects('sports')">Sports</button>
+   <button class="field-button" onclick="toggleSubjects('performingarts')">Performing Arts</button>
+   <button class="field-button" onclick="toggleSubjects('publicadmin')">Public Admin</button>
+   <button class="field-button" onclick="toggleSubjects('management')">Management</button>
+   <button class="field-button" onclick="toggleSubjects('socialwork')">Social Work</button>
+   <button class="field-button" onclick="toggleSubjects('analytics')">Data & Analytics</button>
+   <button class="field-button" onclick="toggleSubjects('space')">Space Science</button>
+   <button class="field-button" onclick="toggleSubjects('forensics')">Forensic Science</button>
+   <button class="field-button" onclick="toggleSubjects('disaster')">Disaster Management</button>
+   <button class="field-button" onclick="toggleSubjects('ethics')">Ethics & Values</button>
+   <button class="field-button" onclick="toggleSubjects('ai')">AI & ML</button>
+   <button class="field-button" onclick="toggleSubjects('language')">Languages</button>
+   <button class="field-button" onclick="toggleSubjects('philosophy')">Philosophy</button>
+   <button class="field-button" onclick="toggleSubjects('genderstudies')">Gender Studies</button>
+   <button class="field-button" onclick="toggleSubjects('humanrights')">Human Rights</button>
+   <button class="field-button" onclick="toggleSubjects('archaeology')">Archaeology</button>
+   <button class="field-button" onclick="toggleSubjects('culturalstudies')">Cultural Studies</button>
+   <button class="field-button" onclick="toggleSubjects('religiousstudies')">Religious Studies</button>
+    <!-- Add more fields as needed -->
+  </div>
 
-  <main>
-    <section id="home" class="active">
-      <h2>Welcome Home 🏠</h2>
-      <p>This is the main dashboard of Genius Era. UPSC | Law | Knowledge | Creativity</p>
-      <p>Page Is Under Proccessing...</p>
-    </section>
+   <!-- Arts Subjects -->
+<div id="arts" class="subject-container arts-bg">
+  <a href="history.html" class="subject-link">History</a>
+  <a href="political-science.html" class="subject-link">Political Science</a>
+  <a href="sociology.html" class="subject-link">Sociology</a>
+  <a href="philosophy.html" class="subject-link">Philosophy</a>
+  <a href="psychology.html" class="subject-link">Psychology</a>
+</div>
+  
 
-    <section id="about">
-      <h2>About Genius Era 💡</h2>
-      <p>We build resources for future leaders, thinkers, aspirants, and creators. From UPSC to World Top Universities.</p>
-    </section>
+  <!-- Science Subjects -->
+  <div id="science" class="subject-container science-bg">
+    <a href="science-physics.html" class="subject-link">Physics</a>
+    <a href="science-chemistry.html" class="subject-link">Chemistry</a>
+    <a href="science-biology.html" class="subject-link">Biology</a>
+    <a href="science-computer.html" class="subject-link">Computer Science</a>
+    <a href="science-astronomy.html" class="subject-link">Astrophysics</a>
+  </div>
 
-    <section id="blog">
-      <h2>Latest Blog 📝</h2>
-      <p><strong>Culpable Homicide vs Murder:</strong> A complete breakdown under IPC for UPSC & judiciary.</p>
-    </section>
+  <!-- Medical Subjects -->
+  <div id="medical" class="subject-container medical-bg">
+    <a href="medical-anatomy.html" class="subject-link">Anatomy</a>
+    <a href="medical-physiology.html" class="subject-link">Physiology</a>
+    <a href="medical-pathology.html" class="subject-link">Pathology</a>
+    <a href="medical-medicine.html" class="subject-link">General Medicine</a>
+    <a href="medical-surgery.html" class="subject-link">Surgery</a>
+  </div>
 
-    <section id="contact">
-      <h2>Contact Us 📬</h2>
-      <p>Email: geniusiam207@gmail.com<br>Instagram: @genius_era</p>
-    </section>
-
-    <section id="fields">
-      <h2>Select Your Field of Interest 🎯</h2>
-      <div class="field-buttons">
-  <button onclick="showSubjects('arts')">Arts</button>
-  <button onclick="showSubjects('commerce')">Commerce</button>
-  <button onclick="showSubjects('science')">Science</button>
-  <button onclick="showSubjects('law')">Law</button>
-  <button onclick="showSubjects('medical')">Medical</button>
-  <button onclick="showSubjects('engineering')">Engineering</button>
-  <button onclick="showSubjects('agriculture')">Agriculture</button>
-  <button onclick="showSubjects('education')">Education</button>
-  <button onclick="showSubjects('finearts')">Fine Arts & Design</button>
-  <button onclick="showSubjects('vocational')">Vocational</button>
-  <button onclick="showSubjects('media')">Media & Communication</button>
-  <button onclick="showSubjects('defense')">Defense Studies</button>
-  <button onclick="showSubjects('environmental')">Environmental</button>
-<button onclick="showSubjects('hospitality')">Hospitality</button>
-<button onclick="showSubjects('library')">Library</button>
-<button onclick="showSubjects('sports')">Sports</button>
-<button onclick="showSubjects('languages')">Languages</button>
-<button onclick="showSubjects('performingarts')">Performing Arts</button>
-<button onclick="showSubjects('publicadmin')">Public Admin</button>
-<button onclick="showSubjects('management')">Management</button>
-<button onclick="showSubjects('socialwork')">Social Work</button>
-<button onclick="showSubjects('analytics')">Data & Analytics</button>
-<button onclick="showSubjects('space')">Space Science</button>
-<button onclick="showSubjects('forensics')">Forensic Science</button>
-<button onclick="showSubjects('disaster')">Disaster Mgmt</button>
-<button onclick="showSubjects('ethics')">Ethics & Values</button>
-<button onclick="showSubjects('aiml')">AI & ML</button>
+  <!-- Commerce Subjects -->
+  <div id="commerce" class="subject-container commerce-bg">
+    <a href="commerce-economics.html" class="subject-link">Economics</a>
+    <a href="commerce-accounting.html" class="subject-link">Accounting</a>
+    <a href="commerce-business.html" class="subject-link">Business Studies</a>
+    <a href="commerce-finance.html" class="subject-link">Finance</a>
+    <a href="commerce-marketing.html" class="subject-link">Marketing</a>
+  </div>
+  <!-- Law -->
+<div id="law" class="subject-container">
+  <a href="law-constitutional.html" class="subject-link">Constitutional Law</a>
+  <a href="law-criminal.html" class="subject-link">Criminal Law</a>
+  <a href="law-civil.html" class="subject-link">Civil Law</a>
+  <a href="law-international.html" class="subject-link">International Law</a>
 </div>
 
-<!-- Add new subject boxes below -->
-
-<div id="arts" class="subject-box">
-  <h3>Arts Subjects:</h3>
-  <ul>
-    <li>History (Ancient, Medieval, Modern)</li>
-    <li>Geography (Physical, Human, Indian)</li>
-    <li>Political Science (Theory, Indian, IR,)</li>
-    <li>Sociology, Psychology, Philosophy</li>
-    <li>Economics</li>
-    <li>Anthropology</li>
-    <li>Archaeolgy</li>
-    <li>Lingustics</li>
-    <li>Internatiomal Relations</li>
-  </ul>
+<!-- Engineering -->
+<div id="engineering" class="subject-container">
+  <a href="eng-mechanical.html" class="subject-link">Mechanical</a>
+  <a href="eng-civil.html" class="subject-link">Civil</a>
+  <a href="eng-electrical.html" class="subject-link">Electrical</a>
+  <a href="eng-computer.html" class="subject-link">Computer Science</a>
 </div>
 
-
-<div id="commerce" class="subject-box">
-  <h3>Commerce Subjects:</h3>
-  <ul>
-    <li>Accountancy</li>
-    <li>Business Studies</li>
-    <li>Economics</li>
-    <li>Entrepreneurship</li>
-  </ul>
+<!-- Agriculture -->
+<div id="agriculture" class="subject-container">
+  <a href="agro-agronomy.html" class="subject-link">Agronomy</a>
+  <a href="agro-horticulture.html" class="subject-link">Horticulture</a>
+  <a href="agro-plant.html" class="subject-link">Plant Pathology</a>
+  <a href="agro-animal.html" class="subject-link">Animal Science</a>
 </div>
 
-<div id="science" class="subject-box">
-  <h3>Science Subjects:</h3>
-  <ul>
-    <li>Physics (Mechanics, Thermodynamics)</li>
-    <li>Chemistry (Organic, Inorganic)</li>
-    <li>Biology (Botany, Zoology)</li>
-    <li>Computer Science, AI, Astrophysics</li>
-  </ul>
+<!-- Education -->
+<div id="education" class="subject-container">
+  <a href="edu-philosophy.html" class="subject-link">Philosophy of Education</a>
+  <a href="edu-psychology.html" class="subject-link">Educational Psychology</a>
+  <a href="edu-tech.html" class="subject-link">EdTech</a>
 </div>
 
-<div id="law" class="subject-box">
-  <h3>Law Subjects:</h3>
-  <ul>
-    <li>Constitutional Law</li>
-    <li>IPC(BNS) / CrPC(Bnss) / Evidence(BSA),White Coller Crime,Criminology,Minor Law& Supreme Court Guidelines </li>
-    <li>Family Law(Hindu Law & Muslim Law), Contract Law,Tort Law</li>
-    <li>International Law, PIL, Cyber Law,Information Technology Law,</li>
-    <li>Environmental Law,Property Law,Company Law,Code Of Civi Procedure,Taxatio Law,Industrial Law,International Trade Law</li>
-    <li>Gender Justice,Competetion Law,Labour Law,Humaniatarian&Refugee Law,Administrative Law</li>
-    <li>Legislative Drafting,Intellectual Property Law,Election Laws,Advocay Law</li>
-  </ul>
+<!-- Fine Arts -->
+<div id="finearts" class="subject-container">
+  <a href="art-painting.html" class="subject-link">Painting</a>
+  <a href="art-sculpture.html" class="subject-link">Sculpture</a>
+  <a href="art-design.html" class="subject-link">Design</a>
 </div>
 
-<div id="medical" class="subject-box">
-  <h3>Medical Subjects:</h3>
-  <ul>
-    <li>Anatomy, Physiology, Pathology</li>
-    <li>Pharmacology, Microbiology</li>
-    <li>Surgery, Medicine, Pediatrics</li>
-    <li>Psychiatry, Radiology, Dermatology</li>
-  </ul>
+<!-- Vocational -->
+<div id="vocational" class="subject-container">
+  <a href="voc-tailoring.html" class="subject-link">Tailoring</a>
+  <a href="voc-carpentry.html" class="subject-link">Carpentry</a>
+  <a href="voc-electrician.html" class="subject-link">Electrician</a>
 </div>
 
-<div id="engineering" class="subject-box">
-  <h3>Engineering Branches:</h3>
-  <ul>
-    <li>Computer Science, IT</li>
-    <li>Mechanical, Electrical, Civil</li>
-    <li>Electronics, Aerospace, Chemical</li>
-    <li>AI/ML, Robotics, Data Science</li>
-  </ul>
+<!-- Media -->
+<div id="media" class="subject-container">
+  <a href="media-journalism.html" class="subject-link">Journalism</a>
+  <a href="media-film.html" class="subject-link">Film Making</a>
+  <a href="media-broadcast.html" class="subject-link">Broadcasting</a>
 </div>
 
-<div id="agriculture" class="subject-box">
-  <h3>Agriculture Subjects:</h3>
-  <ul>
-    <li>Agronomy, Soil Science</li>
-    <li>Horticulture, Plant Pathology</li>
-    <li>Animal Husbandry, Agribusiness</li>
-    <li>Agro Economics, Genetics</li>
-  </ul>
+<!-- Defence -->
+<div id="defence" class="subject-container">
+  <a href="def-military.html" class="subject-link">Military Strategy</a>
+  <a href="def-naval.html" class="subject-link">Naval Studies</a>
+  <a href="def-airforce.html" class="subject-link">Air Force</a>
 </div>
 
-<div id="education" class="subject-box">
-  <h3>Education Subjects:</h3>
-  <ul>
-    <li>Child Psychology</li>
-    <li>Educational Philosophy</li>
-    <li>Pedagogy, Curriculum Studies</li>
-    <li>Inclusive Education, Assessment</li>
-  </ul>
+<!-- Environmental -->
+<div id="environmental" class="subject-container">
+  <a href="env-science.html" class="subject-link">Environmental Science</a>
+  <a href="env-policy.html" class="subject-link">Environmental Policy</a>
 </div>
 
-<div id="finearts" class="subject-box">
-  <h3>Fine Arts & Design:</h3>
-  <ul>
-    <li>Painting, Sculpture, Printmaking</li>
-    <li>Graphic Design, Fashion Design</li>
-    <li>Animation, Interior Design</li>
-    <li>Architecture, Industrial Design</li>
-  </ul>
+<!-- Hospitality -->
+<div id="hospitality" class="subject-container">
+  <a href="hosp-hotel.html" class="subject-link">Hotel Management</a>
+  <a href="hosp-tourism.html" class="subject-link">Tourism</a>
 </div>
 
-<div id="vocational" class="subject-box">
-  <h3>Vocational Skills:</h3>
-  <ul>
-    <li>Plumbing, Electrician, Carpentry</li>
-    <li>Fashion Technology, Beauty & Wellness</li>
-    <li>Hospitality, Tourism</li>
-    <li>Automobile, Healthcare, Coding</li>
-  </ul>
+<!-- Library -->
+<div id="library" class="subject-container">
+  <a href="lib-science.html" class="subject-link">Library Science</a>
 </div>
 
-<div id="media" class="subject-box">
-  <h3>Media & Communication:</h3>
-  <ul>
-    <li>Mass Communication, Journalism</li>
-    <li>Film & TV Studies</li>
-    <li>Public Relations, Advertising</li>
-    <li>Digital Media, Content Creation</li>
-  </ul>
+<!-- Sports -->
+<div id="sports" class="subject-container">
+  <a href="sports-physed.html" class="subject-link">Physical Education</a>
+  <a href="sports-training.html" class="subject-link">Sports Training</a>
 </div>
 
-<div id="defense" class="subject-box">
-  <h3>Defense & Strategic Studies:</h3>
-  <ul>
-    <li>Military History, Strategy</li>
-    <li>International Relations</li>
-    <li>Counter-Terrorism, National Security</li>
-    <li>Geopolitics, Defense Technology</li>
-  </ul>
-</div>
-<div id="environmental" class="subject-box">
-  <h3>Environmental Studies:</h3>
-  <ul>
-    <li>Ecology, Biodiversity</li>
-    <li>Climate Change</li>
-    <li>Environmental Law & Policy</li>
-    <li>Sustainability & Green Tech</li>
-  </ul>
+<!-- Performing Arts -->
+<div id="performingarts" class="subject-container">
+  <a href="perf-music.html" class="subject-link">Music</a>
+  <a href="perf-dance.html" class="subject-link">Dance</a>
+  <a href="perf-theatre.html" class="subject-link">Theatre</a>
 </div>
 
-<div id="hospitality" class="subject-box">
-  <h3>Hospitality & Tourism:</h3>
-  <ul>
-    <li>Hotel Management</li>
-    <li>Travel & Tourism Studies</li>
-    <li>Event Management</li>
-    <li>Food Production & Beverage Services</li>
-  </ul>
+<!-- Public Administration -->
+<div id="publicadmin" class="subject-container">
+  <a href="pa-theory.html" class="subject-link">Admin Theory</a>
+  <a href="pa-governance.html" class="subject-link">Governance</a>
 </div>
 
-<div id="library" class="subject-box">
-  <h3>Library & Information Science:</h3>
-  <ul>
-    <li>Library Management</li>
-    <li>Cataloging & Classification</li>
-    <li>Digital Libraries</li>
-    <li>Information Retrieval</li>
-  </ul>
+<!-- Management -->
+<div id="management" class="subject-container">
+  <a href="mgmt-hr.html" class="subject-link">HR Management</a>
+  <a href="mgmt-finance.html" class="subject-link">Finance Management</a>
 </div>
 
-<div id="sports" class="subject-box">
-  <h3>Sports & Physical Education:</h3>
-  <ul>
-    <li>Sports Science</li>
-    <li>Fitness Training</li>
-    <li>Kinesiology</li>
-    <li>Physical Education Pedagogy</li>
-  </ul>
+<!-- Social Work -->
+<div id="socialwork" class="subject-container">
+  <a href="sw-rural.html" class="subject-link">Rural Welfare</a>
+  <a href="sw-child.html" class="subject-link">Child Welfare</a>
 </div>
 
-<div id="languages" class="subject-box">
-  <h3>Language & Literature:</h3>
-  <ul>
-    <li>Indian Languages:(Hindi,Bengali,Marathi,Tamil,Telugu,Urdu,Gujrati,Kannada,Malyalam,Punjabi,Odia,Assamese,Sanskrit,Sindhi,Kashmiri,Manipuri,Bodo,Dogri,Konkani,Maithili,Santhali)
-        </li>
-        <li>English</li>
-        <li>Mandarin Chinese</li>
-        <li>Spanish</li>
-        <li>French</li>
-        <li>Arabic</li>
-        <li>Portuguese</li>
-        <li>Russian</li>
-        <li>German</li>
-        <li>Italian</li>
-        <li>Latin</li>
-        <li>Ancient Greek</li>
-        <li>Hebrew</li>
-        <li>Japanese</li>
-        <li>Dutch</li>
-        <li>Polish</li>
-        <li>Hungarian</li>
-        <li>Hungarian</li>
-        <li>Swedish<li>
-        <li>Norwegian<li>
-        <li>Finnish<li>
-        <li>Ukrainian<li>
-        <li>Romanian<li>
-        <li>Bulgarian<li>
-        <li>Albanian<li>
-        <li>Gaelic (Irish) <li>
-        <li>Persian (Farsi) <li>
-        <li>Turkish<li>
-        <li>Korean<li>
-        <li>Taiwanese<li>
-        <li>Thai<li>
- </ul>
+<!-- Data & Analytics -->
+<div id="analytics" class="subject-container">
+  <a href="data-analysis.html" class="subject-link">Data Analysis</a>
+  <a href="data-visual.html" class="subject-link">Data Visualization</a>
 </div>
 
-<div id="performingarts" class="subject-box">
-  <h3>Performing Arts:</h3>
-  <ul>
-    <li>Music (Vocal & Instrumental)</li>
-    <li>Theatre & Drama</li>
-    <li>Dance (Classical, Folk, Western)</li>
-    <li>Stage Production</li>
-  </ul>
+<!-- Space Science -->
+<div id="space" class="subject-container">
+  <a href="space-astro.html" class="subject-link">Astronomy</a>
+  <a href="space-sat.html" class="subject-link">Satellite Tech</a>
 </div>
 
-<div id="publicadmin" class="subject-box">
-  <h3>Public Administration:</h3>
-  <ul>
-    <li>Administrative Theory</li>
-    <li>Indian Administration</li>
-    <li>Governance & Reforms</li>
-    <li>Public Policy & E-Governance</li>
-  </ul>
+<!-- Forensic -->
+<div id="forensics" class="subject-container">
+  <a href="forensic-biology.html" class="subject-link">Forensic Biology</a>
+  <a href="forensic-toxic.html" class="subject-link">Toxicology</a>
 </div>
 
-<div id="management" class="subject-box">
-  <h3>Management Studies:</h3>
-  <ul>
-    <li>HR, Marketing, Finance</li>
-    <li>Operations & Strategy</li>
-    <li>Startups & Innovation</li>
-    <li>International Business</li>
-  </ul>
+<!-- Disaster -->
+<div id="disaster" class="subject-container">
+  <a href="disaster-mgmt.html" class="subject-link">Disaster Management</a>
+  <a href="disaster-rescue.html" class="subject-link">Rescue Operations</a>
 </div>
 
-<div id="socialwork" class="subject-box">
-  <h3>Social Work:</h3>
-  <ul>
-    <li>Community Development</li>
-    <li>Women & Child Welfare</li>
-    <li>NGO Management</li>
-    <li>Health & Rehabilitation</li>
-  </ul>
+<!-- Ethics -->
+<div id="ethics" class="subject-container">
+  <a href="ethics-values.html" class="subject-link">Ethics & Values</a>
 </div>
 
-<div id="analytics" class="subject-box">
-  <h3>Data & Analytics:</h3>
-  <ul>
-    <li>Statistics & Probability</li>
-    <li>Data Visualization (Power BI, Tableau)</li>
-    <li>Big Data, Data Mining</li>
-    <li>Business & Predictive Analytics</li>
-  </ul>
+<!-- AI & ML -->
+<div id="ai" class="subject-container">
+  <a href="ai-basics.html" class="subject-link">AI Basics</a>
+  <a href="ai-machinelearning.html" class="subject-link">Machine Learning</a>
+  <a href="ai-deeplearning.html" class="subject-link">Deep Learning</a>
+</div>
+<!-- Languages -->
+<div id="language" class="subject-container">
+  <a href="lang-english.html" class="subject-link">English</a>
+  <a href="lang-hindi.html" class="subject-link">Hindi</a>
+  <a href="lang-sanskrit.html" class="subject-link">Sanskrit</a>
+  <a href="lang-french.html" class="subject-link">French</a>
+  <a href="lang-german.html" class="subject-link">German</a>
+  <a href="lang-spanish.html" class="subject-link">Spanish</a>
+  <a href="lang-chinese.html" class="subject-link">Chinese</a>
 </div>
 
-<div id="space" class="subject-box">
-  <h3>Space & Planetary Science:</h3>
-  <ul>
-    <li>Astrophysics & Astronomy</li>
-    <li>Satellite Science</li>
-    <li>Planetary Geology</li>
-    <li>ISRO/NASA Studies</li>
-  </ul>
+<!-- Philosophy -->
+<div id="philosophy" class="subject-container">
+  <a href="philosophy-indian.html" class="subject-link">Indian Philosophy</a>
+  <a href="philosophy-western.html" class="subject-link">Western Philosophy</a>
+  <a href="philosophy-ethics.html" class="subject-link">Ethics</a>
 </div>
 
-<div id="forensics" class="subject-box">
-  <h3>Forensic Science:</h3>
-  <ul>
-    <li>Crime Scene Investigation</li>
-    <li>Forensic Biology & Toxicology</li>
-    <li>Digital Forensics</li>
-    <li>Law & Ethics in Forensics</li>
-  </ul>
+<!-- Gender Studies -->
+<div id="genderstudies" class="subject-container">
+  <a href="gender-women.html" class="subject-link">Women's Studies</a>
+  <a href="gender-men.html" class="subject-link">Men's Studies</a>
+  <a href="gender-queer.html" class="subject-link">LGBTQ+ Studies</a>
 </div>
 
-<div id="disaster" class="subject-box">
-  <h3>Disaster Management:</h3>
-  <ul>
-    <li>Risk Assessment</li>
-    <li>Emergency Planning</li>
-    <li>NDMA Guidelines</li>
-    <li>Post-Disaster Recovery</li>
-  </ul>
+<!-- Human Rights -->
+<div id="humanrights" class="subject-container">
+  <a href="rights-unhr.html" class="subject-link">UN Human Rights</a>
+  <a href="rights-child.html" class="subject-link">Child Rights</a>
+  <a href="rights-minority.html" class="subject-link">Minority Rights</a>
 </div>
 
-<div id="ethics" class="subject-box">
-  <h3>Ethics & Human Values:</h3>
-  <ul>
-    <li>Indian Moral Thinkers</li>
-    <li>Western Ethics</li>
-    <li>Professional Ethics</li>
-    <li>Applied Ethics</li>
-  </ul>
+<!-- Archaeology -->
+<div id="archaeology" class="subject-container">
+  <a href="archaeology-indian.html" class="subject-link">Indian Archaeology</a>
+  <a href="archaeology-world.html" class="subject-link">World Archaeology</a>
 </div>
 
-<div id="aiml" class="subject-box">
-  <h3>AI & Machine Learning:</h3>
-  <ul>
-    <li>Neural Networks</li>
-    <li>Deep Learning</li>
-    <li>Natural Language Processing</li>
-    <li>Ethics in AI</li>
-  </ul>
+<!-- Cultural Studies -->
+<div id="culturalstudies" class="subject-container">
+  <a href="culture-visual.html" class="subject-link">Visual Culture</a>
+  <a href="culture-media.html" class="subject-link">Media Culture</a>
 </div>
 
-      
-    </section>
-  </main>
+<!-- Religious Studies -->
+<div id="religiousstudies" class="subject-container">
+  <a href="religion-hindu.html" class="subject-link">Hinduism</a>
+  <a href="religion-islam.html" class="subject-link">Islam</a>
+  <a href="religion-christianity.html" class="subject-link">Christianity</a>
+  <a href="religion-buddhism.html" class="subject-link">Buddhism</a>
+</div>
 
-  <footer>
-    &copy; 2025 Genius Era | All rights reserved
-  </footer>
-
+  <!-- JavaScript for toggling -->
   <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-
-      // Hide subject boxes if switching from fields
-      document.querySelectorAll('.subject-box').forEach(box => box.style.display = 'none');
-    }
-
-    function showSubjects(fieldId) {
-      document.querySelectorAll('.subject-box').forEach(box => box.style.display = 'none');
-      document.getElementById(fieldId).style.display = 'block';
+    function toggleSubjects(id) {
+      const all = document.querySelectorAll('.subject-container');
+      all.forEach(div => {
+        if (div.id === id) {
+          div.style.display = div.style.display === 'flex' ? 'none' : 'flex';
+        } else {
+          div.style.display = 'none';
+        }
+      });
     }
   </script>
 
